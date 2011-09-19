@@ -1,0 +1,3 @@
+description "Xapp-Xchat"
+
+exec /media/cryptofs/apps/usr/palm/applications/org.webosinternals.xapp-xchat/bin/start-xterm.sh
