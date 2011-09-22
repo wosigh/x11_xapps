@@ -50,12 +50,12 @@ build/.built-${VERSION}: build/arm.built-${VERSION} # build/i686.built-${VERSION
 
 include ../../support/cross-compile.mk
 
-build/${NAME}.tgz:
-	rm -f build/${NAME}.tgz
-	( cd build ; rootstock --no-root --fqdn ${NAME} --dist natty )
-	mv build/armel-rootfs*.tgz build/${NAME}.tgz
+#build/${NAME}.tgz:
+#	rm -f build/${NAME}.tgz
+#	( cd build ; rootstock --no-root --fqdn ${NAME} --dist natty )
+#	mv build/armel-rootfs*.tgz build/${NAME}.tgz
 
-build/%.built-${VERSION}: build/.unpacked-${VERSION} build/${NAME}.tgz ${DL_DIR}/headlessapp-${HEADLESSAPP_VERSION}.tar.gz
+build/%.built-${VERSION}: build/.unpacked-${VERSION}  ${DL_DIR}/headlessapp-${HEADLESSAPP_VERSION}.tar.gz
 	rm -rf build/$*
 	mkdir -p build/$*/usr/palm/applications/${APP_ID}
 	tar -C build/$*/usr/palm/applications/${APP_ID} -xf ${DL_DIR}/headlessapp-${HEADLESSAPP_VERSION}.tar.gz
@@ -83,8 +83,8 @@ endif
 	echo "\"noWindow\": true" >> build/$*/usr/palm/applications/${APP_ID}/appinfo.json
 	echo "}" >> build/$*/usr/palm/applications/${APP_ID}/appinfo.json
 	touch $@
-	mkdir -p build/$*/usr/palm/applications/${APP_ID}/usr/sbin
-	install -m 744 usr/sbin/*.sh build/$*/usr/palm/applications/${APP_ID}/usr/sbin/
+	#mkdir -p build/$*/usr/palm/applications/${APP_ID}/usr/sbin
+	#install -m 744 usr/sbin/*.sh build/$*/usr/palm/applications/${APP_ID}/usr/sbin/
 
 clobber::
 	rm -rf build

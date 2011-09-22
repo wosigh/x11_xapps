@@ -30,7 +30,7 @@ fi
 
 if `/usr/sbin/chroot ${chroot_path} /usr/bin/sudo -u webos ls /usr/sbin/Xapps.sh`
 then
-    
+fi    
 
 # Install the upstart script
 mkdir -p /var/palm/event.d

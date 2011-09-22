@@ -10,7 +10,7 @@ mount -t proc none ${CHROOT}/proc
 mount --bind /sys ${CHROOT}/sys
 mount --bind /tmp ${CHROOT}/tmp
 
-chroot ${CHROOT} /bin/bash
+chroot ${CHROOT} /bin/bash 
 
 umount ${CHROOT}/tmp
 umount ${CHROOT}/sys
