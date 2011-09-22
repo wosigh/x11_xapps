@@ -27,11 +27,11 @@ if ! `grep -q ext3fs /proc/mounts` ; then
     echo "You must ensure a dedicated ext3fs partition is mounted before installing this package"
     exit 1
 fi
-
+touch /var/luna/preferences/ran-postinst
 if `/usr/sbin/chroot ${chroot_path} /usr/bin/sudo -u webos ls /usr/sbin/Xapps.sh`
 then
 fi    
-
+touch /var/luna/preferences/${APPID}
 # Install the upstart script
 mkdir -p /var/palm/event.d
 cp ${APPDIR}/upstart/${APPID} /var/palm/event.d/${APPID}
